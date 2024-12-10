@@ -1,0 +1,463 @@
+
+body, h1, h2, h3, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+
+  /* Animação loading*/
+
+  .loading { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .ball {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #00b344;
+    animation: bounce 0.6s infinite alternate;
+  }
+  
+  .ball:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .ball:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .ball:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  
+  /* Header */
+  header {
+    background: linear-gradient(to right, #055a16, #055a16);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    margin-top: 10px;
+  }
+  
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  header nav ul li a:hover {
+    color: #ffeb3b;
+  }
+  
+  /* Seções */
+  .section {
+    margin: 40px 0;
+  }
+  
+  .section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #1F8A35;
+  }
+  
+  /* Sobre mim */
+  #sobre-mim p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Skills */
+  .skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .skills-list li {
+    background: #f4f4f4;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  .skills-list li:hover {
+    background: #055a16;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  /* Projetos */
+  .project {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .project:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .project a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #055a16;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  .project {
+    display: flex;
+    align-items: center;
+    background: #f4f4f4;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .project img {
+    max-width: 100px; 
+    max-height: 100px;
+    margin-right: 1rem; /* Espaçamento entr imagem e texto */
+    border-radius: 8px; 
+  }
+  .project a:hover {
+    color: #28a745;
+  }
+  
+  /* Media Queries dos Cards Projetos */
+
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .skills-list li {
+    font-size: 0.8rem;
+  }
+
+  .project h3 {
+    font-size: 1.2rem;
+  }
+
+  .project p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  nav ul li a {
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .skills-list {
+    justify-content: center;
+  }
+
+  .skills-list li {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .project {
+    padding: 10px;
+  }
+
+  .project h3 {
+    font-size: 1.1rem;
+  }
+
+  .project p {
+    font-size: 0.8rem;
+  }
+
+  .social-links a img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header p {
+    font-size: 0.8rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  nav ul li a {
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  .skills-list li {
+    padding: 8px 10px;
+    font-size: 0.7rem;
+  }
+
+  .project {
+    padding: 8px;
+  }
+
+  .project h3 {
+    font-size: 1rem;
+  }
+
+  .project p {
+    font-size: 0.8rem;
+  }
+
+  .social-links a img {
+    width: 30px;
+    height: 30px;
+  }
+}
+  /* Contato */
+  .social-links {
+    display: flex;
+    justify-content: center; /* Centraliza os ícones */
+    align-items: center;
+    gap: 20px; /* Espaçamento horizontal entre os ícones */
+    margin-top: 1rem;
+  }
+  
+  .social-links a img {
+    width: 40px; /* Reduz o tamanho dos ícones */
+    height: 40px;
+    border-radius: 50%; /* Torna os ícones redondos, se desejado */
+    transition: transform 0.2s; /* Adiciona um efeito ao passar o mouse */
+  }
+  
+  .social-links a img:hover {
+    transform: scale(1.2); /* Amplia o ícone  ao passar o mouse */
+  }
+  
+  /* Efeitos 3D nas sections */
+.section {
+    position: relative;
+    perspective: 1000px; /* Mantém a perspectiva para a rotação */
+  }
+  
+  .section h2 {
+    transform: translateZ(50px); /* Dá um efeito de profundidade ao título */
+    animation: moveSection 2s ease-in-out infinite;
+  }
+  
+  @keyframes moveSection {
+    0% {
+      transform: translateZ(50px);
+    }
+    100% {
+      transform: translateZ(-50px);
+    }
+  }
+  
+  /* Flutuação 3D em projetos e skills */
+.project, .skills-list li {
+    animation: floatEffect 3s ease-in-out infinite;
+  }
+  
+  @keyframes floatEffect {
+    0% {
+      transform: translateY(0) rotateX(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotateX(15deg); 
+    }
+    100% {
+      transform: translateY(0) rotateX(0deg);
+    }
+  }
+  /* Hover com animação em 3D */
+.project:hover {
+    transform: rotateY(15deg) translateY(-20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .skills-list li:hover {
+    transform: rotateY(20deg) scale(1.15); /* Escala maior e rotação */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  /* efeito Fade e Slide 3D nas seções ao passar o scroll */
+.section {
+    opacity: 0;
+    transform: translateZ(-200px);
+    animation: fadeInUp 1.5s forwards;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(100px) translateZ(-200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) translateZ(0);
+    }
+  }
+
+  
+  /* Estilo para cada letra individual */
+#nome span {
+    display: inline-block;
+    animation: escadinha 1s ease-in-out infinite;
+  }
+  
+  /* Animação para as letras subindo e descendo */
+  @keyframes escadinha {
+    0%, 100% {
+      transform: translateY(0); /* As letras começam e terminam na posição original */
+    }
+    25% {
+      transform: translateY(-8px); 
+    }
+    50% {
+      transform: translateY(8px); 
+    }
+    75% {
+      transform: translateY(-8px); 
+    }
+  }
+  
+  /* Atraso para a animação das letras ímpares e pares */
+  #nome span:nth-child(odd) {
+    animation-delay: 0.1s; 
+  }
+  
+  #nome span:nth-child(even) {
+    animation-delay: 0.2s; 
+  }
+  
+/* Botões com animação de transformação 3D */
+button {
+    background: #055a16;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+  }
+  
+  button:hover {
+    transform: rotateX(15deg) scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+    
+  /* Footer */
+  footer {
+    background: #055a16;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
