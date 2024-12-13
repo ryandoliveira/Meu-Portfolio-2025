@@ -82,7 +82,7 @@ body, h1, h2, h3, p, ul, li, a {
   }
   
   header nav ul li a {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -109,10 +109,12 @@ body, h1, h2, h3, p, ul, li, a {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    font-size:large;
   }
   
   /* Skills */
   .skills-list {
+    list-style-type: none;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -120,17 +122,12 @@ body, h1, h2, h3, p, ul, li, a {
   }
   
   .skills-list li {
-    background: #f4f4f4;
+    background: #ffffff;
     padding: 10px 20px;
     border-radius: 20px;
     transition: transform 0.3s, background 0.3s;
   }
   
-  .skills-list li:hover {
-    background: #055a16;
-    color: white;
-    transform: scale(1.1);
-  }
   
   /* Projetos */
   .project {
@@ -139,12 +136,31 @@ body, h1, h2, h3, p, ul, li, a {
     background: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 10px;
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Transições suaves nos cards */
+    opacity: 0.8; /* Transparência inicial */
   }
-  
+
+  /* Efeito de Pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* Aumenta o tamanho */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
   .project:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(27, 27, 27, 0.2);
     transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.05); /* Move ligeiramente para cima e dá zoom */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1); 
+  opacity: 1; 
+  animation: pulse 1.5s infinite; /* Efeito de pulso contínuo */
   }
   
   .project a {
@@ -175,178 +191,118 @@ body, h1, h2, h3, p, ul, li, a {
     color: #28a745;
   }
   
-  /* Media Queries dos Cards Projetos */
+  /* Projetos e Flutuação 3D em projetos e skills */
+.project, .skills-list li {
+  animation: floatEffect 3s ease-in-out infinite;
+}
 
+@keyframes floatEffect {
+  0% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(15deg); 
+  }
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+/* Hover com animação em 3D */
+.project:hover {
+  transform: rotateY(15deg) translateY(-20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Media Queries */
 @media (max-width: 1024px) {
+  .container {
+      padding: 15px;
+  }
+
   header h1 {
-    font-size: 2rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
-  nav ul {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  nav ul li a {
-    font-size: 0.9rem;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-  }
-
-  p {
-    font-size: 0.9rem;
+      font-size: 1.8rem;
   }
 
   .skills-list li {
-    font-size: 0.8rem;
+      padding: 10px;
   }
 
-  .project h3 {
-    font-size: 1.2rem;
-  }
-
-  .project p {
-    font-size: 0.9rem;
+  .project {
+      padding: 10px;
+      flex-direction: column;
+      align-items: flex-start;
   }
 }
 
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 1.8rem;
+  header nav ul {
+      flex-direction: column;
   }
 
-  header p {
-    font-size: 0.9rem;
+  header nav ul li a {
+      font-size: 0.9rem;
   }
 
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
+  .section h2 {
+      font-size: 1.8rem;
   }
 
-  nav ul li a {
-    font-size: 0.8rem;
-  }
-
-  h2 {
-    font-size: 1.6rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
-
-  .skills-list {
-    justify-content: center;
-  }
-
-  .skills-list li {
-    font-size: 0.8rem;
-    padding: 8px 12px;
-  }
-
-  .project {
-    padding: 10px;
-  }
-
-  .project h3 {
-    font-size: 1.1rem;
-  }
-
-  .project p {
-    font-size: 0.8rem;
-  }
-
-  .social-links a img {
-    width: 35px;
-    height: 35px;
+  button {
+      padding: 8px 12px;
+      font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   header h1 {
-    font-size: 1.5rem;
-  }
-
-  header p {
-    font-size: 0.8rem;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-
-  nav ul li a {
-    font-size: 0.8rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 0.8rem;
+      font-size: 1.5rem;
   }
 
   .skills-list li {
-    padding: 8px 10px;
-    font-size: 0.7rem;
+      font-size: 0.8rem;
   }
 
-  .project {
-    padding: 8px;
+  .project img {
+      max-width: 80px;
+      height: auto;
   }
 
-  .project h3 {
-    font-size: 1rem;
-  }
-
-  .project p {
-    font-size: 0.8rem;
-  }
-
-  .social-links a img {
-    width: 30px;
-    height: 30px;
+  footer {
+      font-size: 0.9rem;
   }
 }
+
+
   /* Contato */
   .social-links {
     display: flex;
-    justify-content: center; /* Centraliza os ícones */
+    justify-content: center;
     align-items: center;
-    gap: 20px; /* Espaçamento horizontal entre os ícones */
-    margin-top: 1rem;
-  }
-  
-  .social-links a img {
-    width: 40px; /* Reduz o tamanho dos ícones */
-    height: 40px;
-    border-radius: 50%; /* Torna os ícones redondos, se desejado */
-    transition: transform 0.2s; /* Adiciona um efeito ao passar o mouse */
-  }
-  
-  .social-links a img:hover {
-    transform: scale(1.2); /* Amplia o ícone  ao passar o mouse */
-  }
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-links a img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.social-links a img:hover {
+    transform: scale(1.2);
+}
   
   /* Efeitos 3D nas sections */
 .section {
     position: relative;
-    perspective: 1000px; /* Mantém a perspectiva para a rotação */
+    perspective: 1000px; 
   }
   
   .section h2 {
-    transform: translateZ(50px); /* Dá um efeito de profundidade ao título */
+    transform: translateZ(50px); /* efeito de profundidade ao título */
     animation: moveSection 2s ease-in-out infinite;
   }
   
@@ -359,32 +315,10 @@ body, h1, h2, h3, p, ul, li, a {
     }
   }
   
-  /* Flutuação 3D em projetos e skills */
-.project, .skills-list li {
-    animation: floatEffect 3s ease-in-out infinite;
-  }
+ 
+
+ 
   
-  @keyframes floatEffect {
-    0% {
-      transform: translateY(0) rotateX(0deg);
-    }
-    50% {
-      transform: translateY(-10px) rotateX(15deg); 
-    }
-    100% {
-      transform: translateY(0) rotateX(0deg);
-    }
-  }
-  /* Hover com animação em 3D */
-.project:hover {
-    transform: rotateY(15deg) translateY(-20px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  }
-  
-  .skills-list li:hover {
-    transform: rotateY(20deg) scale(1.15); /* Escala maior e rotação */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  }
   /* efeito Fade e Slide 3D nas seções ao passar o scroll */
 .section {
     opacity: 0;
