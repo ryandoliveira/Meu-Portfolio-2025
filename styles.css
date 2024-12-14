@@ -1,197 +1,214 @@
-
+/* Reset básico */
 body, h1, h2, h3, p, ul, li, a {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #ffffff;
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, #055a16, #055a16);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  white-space: nowrap; /* Evitar quebra de linha no título */
+}
 
 
-  /* Animação loading*/
+header p {
+  font-size: 1rem;
+}
 
-  .loading { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .ball {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #00b344;
-    animation: bounce 0.6s infinite alternate;
-  }
-  
-  .ball:nth-child(1) {
-    animation-delay: 0s;
-  }
-  
-  .ball:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  
-  .ball:nth-child(3) {
-    animation-delay: 0.4s;
-  }
-  
-  @keyframes bounce {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-20px);
-    }
-  }
-  
-  
-  /* Header */
-  header {
-    background: linear-gradient(to right, #055a16, #055a16);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-  }
-  
-  header h1 {
-    font-size: 2.5rem;
-  }
-  
-  header p {
-    font-size: 1rem;
-  }
-  
-  header nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    list-style: none;
-    margin-top: 10px;
-  }
-  
-  header nav ul li a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  header nav ul li a:hover {
-    color: #ffeb3b;
-  }
-  
-  /* Seções */
-  .section {
-    margin: 40px 0;
-  }
-  
-  .section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #1F8A35;
-  }
-  
-  /* Sobre mim */
-  #sobre-mim p {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    font-size:large;
-  }
-  
-  /* Skills */
-  .skills-list {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-  
-  .skills-list li {
-    background: #ffffff;
-    padding: 10px 20px;
-    border-radius: 20px;
-    transition: transform 0.3s, background 0.3s;
-  }
-  
-  
-  /* Projetos */
-  .project {
-    margin-bottom: 20px;
-    padding: 20px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Transições suaves nos cards */
-    opacity: 0.8; /* Transparência inicial */
-  }
+header nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  margin-top: 10px;
+}
 
-  /* Efeito de Pulso */
+header nav ul li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #ffeb3b;
+}
+
+/* Home */
+#home {
+  background: #055a16;
+  padding: 4rem 2rem;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    animation: fadeIn 2s ease-out;
+}
+
+#home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transform: perspective(1000px) rotateY(0deg); /* Efeito inicial de rotação */
+  transition: transform 0.5s ease;
+}
+
+#home h1:hover {
+  transform: rotateY(15deg); /* Rotação em 3D no hover */
+}
+
+#home p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1.5s ease-out; /* Efeito de fade-in e movimento para cima */
+  text-align: center; 
+}
+
+.profile-container h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+.profile-container p {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.btn {
+  background-color: #1F8A35;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #155d27;
+}
+
+/* Seções */
+.section {
+  margin: 40px 0;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #1F8A35;
+}
+
+/* Sobre mim */
+#sobre-mim p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: large;
+}
+
+/* Skills */
+.skills-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.skills-list li {
+  background: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+/* Projetos */
+.project {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  opacity: 0.8;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.05); /* Aumenta o tamanho */
+    transform: scale(1.05);
   }
   100% {
     transform: scale(1);
   }
 }
 
-  .project:hover {
-    box-shadow: 0 4px 15px rgba(27, 27, 27, 0.2);
-    transform: translateY(-5px);
-    transform: translateY(-5px) scale(1.05); /* Move ligeiramente para cima e dá zoom */
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  filter: brightness(1.1); 
-  opacity: 1; 
-  animation: pulse 1.5s infinite; /* Efeito de pulso contínuo */
-  }
-  
-  .project a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #055a16;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  .project {
-    display: flex;
-    align-items: center;
-    background: #f4f4f4;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  .project img {
-    max-width: 100px; 
-    max-height: 100px;
-    margin-right: 1rem; /* Espaçamento entr imagem e texto */
-    border-radius: 8px; 
-  }
-  .project a:hover {
-    color: #28a745;
-  }
-  
-  /* Projetos e Flutuação 3D em projetos e skills */
+.project:hover {
+  box-shadow: 0 4px 15px rgba(27, 27, 27, 0.2);
+  transform: translateY(-5px);
+  animation: pulse 1.5s infinite;
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #055a16;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  background: #f4f4f4;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.project img {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 1rem;
+  border-radius: 8px;
+}
+
+.project a:hover {
+  color: #28a745;
+}
+
 .project, .skills-list li {
   animation: floatEffect 3s ease-in-out infinite;
 }
@@ -201,198 +218,311 @@ body, h1, h2, h3, p, ul, li, a {
     transform: translateY(0) rotateX(0deg);
   }
   50% {
-    transform: translateY(-10px) rotateX(15deg); 
+    transform: translateY(-10px) rotateX(15deg);
   }
   100% {
     transform: translateY(0) rotateX(0deg);
   }
 }
-/* Hover com animação em 3D */
+
 .project:hover {
   transform: rotateY(15deg) translateY(-20px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-
-
 /* Media Queries */
 @media (max-width: 1024px) {
   .container {
-      padding: 15px;
+    padding: 15px;
   }
 
   header h1 {
-      font-size: 1.8rem;
+    font-size: 1.8rem;
   }
-
+  header nav ul {
+    gap: 10px; 
+  }
+  #home {
+    padding: 3rem 1.5rem; 
+  }
   .skills-list li {
-      padding: 5px;
+    padding: 5px;
   }
 
   .project {
-      padding: 10px;
-      flex-direction: column;
-      align-items: flex-start;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 @media (max-width: 768px) {
   header nav ul {
-      flex-direction: column;
+    flex-direction: row;
   }
 
   header nav ul li a {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 
   .section h2 {
-      font-size: 1.8rem;
+    font-size: 1.8rem;
   }
 
   button {
-      padding: 8px 12px;
-      font-size: 0.9rem;
+    padding: 8px 12px;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   header h1 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .skills-list li {
-      font-size: 1.0rem;
-      
+    font-size: 1.0rem;
   }
 
   .project img {
-      max-width: 80px;
-      height: auto;
+    max-width: 80px;
+    height: auto;
   }
 
   footer {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 }
 
 
-  /* Contato */
-  .social-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+/* Media Queries para a seção #home */
+@media (max-width: 1024px) {
+  /* Ajuste no home */
+  #home {
+    padding: 5rem 1.5rem; 
+  }
+
+  #home h1 {
+    font-size: 2.5rem;
+  }
+
+  #home p {
+    font-size: 1.rem;
+    text-align: center; 
+  }
+
+  .profile-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .profile-container p {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ajustes para telas menores */
+  #home {
+    padding: 4rem 1.5rem;
+  }
+
+  #home h1 {
+    font-size: 2.0rem;
+  }
+
+  #home p {
+    font-size: 1.2rem;
+    text-align: center; 
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .profile-container h1 {
+    font-size: 2rem;
+  }
+
+  .profile-container p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajustes para dispositivos muito pequenos */
+  #home {
+    padding: 3rem 1rem;
+  }
+
+  #home h1 {
+    font-size: 1.5rem; 
+    margin-bottom: 1rem; 
+    margin-top: 1rem;
+  }
+
+  #home p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center; 
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .profile-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .profile-container p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animação loading */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.ball {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #00b344;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.ball:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.ball:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.ball:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Contato */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .social-links a img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    transition: transform 0.2s;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: transform 0.2s;
 }
 
 .social-links a img:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
-  
-  /* Efeitos 3D nas sections */
-.section {
-    position: relative;
-    perspective: 1000px; 
-  }
-  
-  .section h2 {
-    transform: translateZ(50px); /* efeito de profundidade ao título */
-    animation: moveSection 2s ease-in-out infinite;
-  }
-  
-  @keyframes moveSection {
-    0% {
-      transform: translateZ(50px);
-    }
-    100% {
-      transform: translateZ(-50px);
-    }
-  }
-  
- 
 
- 
-  
-  /* efeito Fade e Slide 3D nas seções ao passar o scroll */
+/* Efeitos 3D nas sections */
 .section {
+  position: relative;
+  perspective: 1000px;
+}
+
+.section h2 {
+  transform: translateZ(50px);
+  animation: moveSection 2s ease-in-out infinite;
+}
+
+@keyframes moveSection {
+  0% {
+    transform: translateZ(50px);
+  }
+  100% {
+    transform: translateZ(-50px);
+  }
+}
+
+/* Efeito Fade e Slide 3D nas seções ao passar o scroll */
+.section {
+  opacity: 0;
+  transform: translateZ(-200px);
+  animation: fadeInUp 1.5s forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
     opacity: 0;
-    transform: translateZ(-200px);
-    animation: fadeInUp 1.5s forwards;
+    transform: translateY(100px) translateZ(-200px);
   }
-  
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(100px) translateZ(-200px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) translateZ(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
   }
+}
 
-  
-  /* Estilo para cada letra individual */
+/* Estilo para cada letra individual usando pseudo-elemento */
+#nome {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+#nome::before {
+  content: attr(data-text);
+  visibility: hidden;
+}
+
+#nome {
+  position: relative;
+  display: inline-block;
+}
+
 #nome span {
-    display: inline-block;
-    animation: escadinha 1s ease-in-out infinite;
+  display: inline-block;
+  animation: escadinha 1s ease-in-out infinite;
+}
+
+@keyframes escadinha {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  /* Animação para as letras subindo e descendo */
-  @keyframes escadinha {
-    0%, 100% {
-      transform: translateY(0); /* As letras começam e terminam na posição original */
-    }
-    25% {
-      transform: translateY(-8px); 
-    }
-    50% {
-      transform: translateY(8px); 
-    }
-    75% {
-      transform: translateY(-8px); 
-    }
+  25% {
+    transform: translateY(-8px);
   }
-  
-  /* Atraso para a animação das letras ímpares e pares */
-  #nome span:nth-child(odd) {
-    animation-delay: 0.1s; 
+  50% {
+    transform: translateY(8px);
   }
-  
-  #nome span:nth-child(even) {
-    animation-delay: 0.2s; 
+  75% {
+    transform: translateY(-8px);
   }
-  
-/* Botões com animação de transformação 3D */
-button {
-    background: #055a16;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transform-style: preserve-3d;
-  }
-  
-  button:hover {
-    transform: rotateX(15deg) scale(1.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  }
-    
-  /* Footer */
-  footer {
-    background: #055a16;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-  }
-  
+}
+
+/* Footer */
+footer {
+  background: #055a16;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
