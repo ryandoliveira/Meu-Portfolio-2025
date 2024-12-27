@@ -1,68 +1,122 @@
-// Animação passar o mouse por skills
-const skills = document.querySelectorAll('.skills-list li');
-skills.forEach(skill => {
-  skill.addEventListener('mouseover', () => {
-    skill.style.transition = 'transform 0.3s';
-    skill.style.transform = 'rotate(5deg)';
-  });
+document.addEventListener("DOMContentLoaded", () => {
+    const typingEffect = document.getElementById("typing-effect");
+    const texts = [
+        "Software Engineer | Java | C# | HTML | React.Js | CSS | MySQL | User Experience"
+    ];
+    let charIndex = 0;
 
-  skill.addEventListener('mouseout', () => {
-    skill.style.transform = 'rotate(0deg)';
-  });
+    function typeText() {
+        if (charIndex < texts[0].length) {
+            typingEffect.innerHTML = `
+                ${texts[0].slice(0, charIndex + 1)}
+                <span class="blinking-cursor"></span>`;
+            charIndex++;
+            setTimeout(typeText, 100); // Velocidade de digitação
+        } else {
+            typingEffect.innerHTML = `${texts[0]}<span class="blinking-cursor"></span>`;
+        }
+    }
+
+    typeText(); // Inicia o efeito de digitação
 });
 
-// Animação de passar o mouse por projetos
-const projects = document.querySelectorAll('.project');
-projects.forEach(project => {
-  project.addEventListener('mouseover', () => {
-    project.style.transition = 'box-shadow 0.3s ease-in-out';
-    project.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.3)';
-  });
+document.addEventListener('scroll', () => {
+    const aboutCard = document.querySelector('.about-card');
+    const rect = aboutCard.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-  project.addEventListener('mouseout', () => {
-    project.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
-  });
+    if (rect.top >= windowHeight * 0.25 && rect.bottom <= windowHeight * 0.75) {
+        aboutCard.classList.add('active');
+    } else {
+        aboutCard.classList.remove('active');
+    }
 });
 
-// Animação de escadinha nas letras do nome
-document.addEventListener("DOMContentLoaded", function () {
-  let nomeElement = document.getElementById("nome");
-  let nomeText = nomeElement.innerText;
-  
-  
-  nomeElement.innerHTML = '';
+// Adicionando evento apenas para o card
+const aboutCard = document.querySelector(".about-card");
 
-  // Divide o nome em palavras
-  let palavras = nomeText.split(' ');
+aboutCard.addEventListener("mousemove", (e) => {
+    const { left, top, width, height } = aboutCard.getBoundingClientRect();
 
-  palavras.forEach(function (palavra, index) {
-    // Cria um contêiner <span> para cada palavra
-    let palavraSpan = document.createElement('span');
-    
-    // Divide a palavra em letras e coloca cada uma em um <span>
-    palavra.split('').forEach(function (letra, letraIndex) {
-      let letraSpan = document.createElement('span');
-      letraSpan.innerText = letra;
-      
-      // Aplica a animação 
-      letraSpan.style.display = 'inline-block';
-      letraSpan.style.animation = 'escadinha 1s ease-in-out infinite';
-      
-      // Atraso para as letras ímpares e pares
-      if (letraIndex % 2 === 0) {
-        letraSpan.style.animationDelay = '0.1s';
+    // Coordenadas relativas ao card
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+
+    // Calcula ângulos de rotação
+    const rotateX = (y / height - 0.5) * -20; // Eixo vertical
+    const rotateY = (x / width - 0.5) * 20; // Eixo horizontal
+
+    // Aplica a transformação no card
+    aboutCard.style.transform = `
+        perspective(800px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)`;
+});
+
+// Reseta animação quando o mouse sai do card
+aboutCard.addEventListener("mouseleave", () => {
+    aboutCard.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg)";
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const typingEffect2 = document.getElementById("typing-effect-2");
+    const fixedText = "Gostou do meu trabalho? "; // Parte fixa
+    const variableTexts = [
+      { text: "Entre em Contato!", color: "#00ffcc" }, 
+      { text: "Veja meus repositórios Git!", color: "#00ffcc" } ,
+      { text: "Acesse meu LinkedIn!", color: "#00ffcc" }, 
+      { text: "Mande um email!", color: "#00ffcc" } 
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeSecondEffect() {
+      const currentText = variableTexts[textIndex];
+      if (isDeleting) {
+        charIndex--;
       } else {
-        letraSpan.style.animationDelay = '0.2s';
+        charIndex++;
       }
-      
-      // Adiciona a letra ao contêiner da palavra
-      palavraSpan.appendChild(letraSpan);
-    });
-    
-    // Adiciona a palavra ao título
-    nomeElement.appendChild(palavraSpan);
-    
-  
-    nomeElement.appendChild(document.createTextNode(' '));
-  });
+
+      typingEffect2.innerHTML = `
+        ${fixedText}<span style="color: ${currentText.color};">${currentText.text.slice(0, charIndex)}</span>
+        <span class="blinking-cursor"></span>`;
+
+      if (!isDeleting && charIndex === currentText.text.length) {
+        setTimeout(() => (isDeleting = true), 2000); // Pausa ao terminar de digitar
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % variableTexts.length; // Alterna para a próxima frase
+      }
+
+      const typingSpeed = isDeleting ? 50 : 100; // Velocidade ao apagar e digitar
+      setTimeout(typeSecondEffect, typingSpeed);
+    }
+
+    typeSecondEffect(); // Inicia o segundo efeito de digitação
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll('.card__article');
+  
+    // Cria o observer para verificar quando os cards entram na tela
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        // Quando o card estiver visível na tela
+        if (entry.isIntersecting) {
+          entry.target.querySelector('.card__data').classList.add('visible'); // Mostra os dados
+          observer.unobserve(entry.target); // Para de observar o card após ele aparecer
+        }
+      });
+    }, {
+      threshold: 0.5 // O card começa a aparecer quando 50% dele estiver visível
+    });
+  
+    // Inicia a observação dos cards
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  });
+  
