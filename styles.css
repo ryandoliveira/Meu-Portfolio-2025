@@ -354,13 +354,71 @@ h1 {
     background-color: #a6c2f0;
   }
   
-  /* Responsiveness */
-  @media (max-width: 768px) {
-    .card-section .article-wrapper {
-      max-width: 100%; /* Cards ocupam toda a largura */
+/* responsividade da aba de projetos */
+@media screen and (max-width: 768px) {
+    .card-section {
+      padding: 10px;
+    }
+  
+    .section-title2 {
+      font-size: 40px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .article-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  
+    .container-project {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+  
+    .project-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  
+    .project-info {
+      text-align: center;
+      padding: 10px;
+    }
+  
+    .project-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+  
+    .project-descricao {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+  
+    .flex-pr {
+      display: flex;
+      
+      align-items: center;
+    }
+  
+    .project-type {
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+  
+    .project-hover img {
+      width: 25px;
+      height: 25px;
     }
   }
   
+
 
 /* Contato */
 
