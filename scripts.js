@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const typingEffect = document.getElementById("typing-effect");
     const texts = [
-        "Software Engineer | Java | C# | HTML | React.Js | CSS | MySQL | User Experience"
+        "Software Engineer | Java | C# | HTML | React.Js | CSS | MySQL | User Experience | Data Analysis | Power BI"
     ];
     let charIndex = 0;
 
